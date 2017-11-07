@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:padding="@dimen/widget_margin">
+
+    <TextView
+        android:id="@+id/napWidgetTextBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/appwidget_text"
+        android:text="@string/appwidget_text"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/napWidgetTicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:layout_below="@+id/napWidgetTextBox"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/startWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/napWidgetTicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textSize="24sp"
+        android:background="@android:color/transparent"
+        android:textColor="#ffffff"
+        android:text="Start" />
+    <Button
+        android:id="@+id/stopWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/napWidgetTicker"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:background="@android:color/transparent"
+        android:textColor="#ffffff"
+        android:layout_marginTop="16dp"
+        android:text="Stop" />
+
+</RelativeLayout>

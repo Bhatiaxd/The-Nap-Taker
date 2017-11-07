@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.karan.thenaptaker">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icons"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".napdetail.NapDetail"
+            android:parentActivityName=".MainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.karan.thenaptaker.MainActivity" />
+        </activity>
+        <activity
+            android:name=".napdetail.UpdateNapDetail"
+            android:parentActivityName=".MainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.karan.thenaptaker.MainActivity" />
+        </activity>
+        <activity
+            android:name=".napalarm.StopActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.karan.thenaptaker.MainActivity" />
+        </activity>
+        <activity
+            android:name=".napwebservice.WebViews"
+            android:label="@string/benefits"
+            android:parentActivityName=".napwebservice.WebScrollingActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.karan.thenaptaker.napwebservice.WebScrollingActivity" />
+        </activity>
+        <activity
+            android:name=".napwebservice.WebScrollingActivity"
+            android:label="@string/benefits"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".naplist.EditScrollingActivity"
+            android:label="@string/napeditor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".naplist.StartScrollingActivity"
+            android:label="@string/napstarter"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".about.About"
+            android:parentActivityName=".MainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.karan.thenaptaker.MainActivity" />
+        </activity>
+
+        <service
+            android:name=".reminder.MyAlarmService"
+            android:enabled="true" />
+
+        <receiver android:name=".reminder.MyReceiver" />
+        <receiver android:name=".napwidget.NapWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/nap_widget_info" />
+        </receiver>
+
+        <activity android:name=".napwidget.NapWidgetConfigureActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".napwidget.NapWidgetAlarm" />
+
+        <receiver
+            android:name=".napwidget.MyReceiverStart"
+            android:enabled="true" />
+        <receiver
+            android:name=".napwidget.MyReceiverStop"
+            android:enabled="true" />
+
+        <provider
+            android:name=".napwidget.MyContentProvider"
+            android:authorities="com.karan.thenaptaker.napwidget.MyContentProvider"
+            android:enabled="true"
+            android:exported="false"/>
+        <instrumentation
+            android:name="android.test.InstrumentationTestRunner"
+            android:targetPackage="android.support.design.test"/>
+
+    </application>
+
+</manifest>
